@@ -12,7 +12,7 @@ const theme: DefaultTheme = {
     accent: '#ECBF6A',
   },
   backgrounds:{
-    primary: '#1d1d1d',
+    primary: '#141414',
     secondary: '#161616',
     offColor: '#737373',
     accent: '#ECBF6A',

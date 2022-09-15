@@ -33,8 +33,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <div className='circle-one'></div>
-          <div className='circle-two'></div>
+          
         </body>
       </Html>
     )

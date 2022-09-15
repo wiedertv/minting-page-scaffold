@@ -376,7 +376,7 @@ const Home: NextPage<{TARGET_DATE: number}> = ({TARGET_DATE}) => {
       <MainLayout >
         <MintingPage > 
           <ContainerText>
-            <Title>Mark Rise</Title>
+            <Title>Waleska</Title>
             <Counter>
               {
                  minutes > 10 ? ( "00: 10: 00") :
@@ -389,7 +389,7 @@ const Home: NextPage<{TARGET_DATE: number}> = ({TARGET_DATE}) => {
             </Counter>
             <Description>
               Exclusive Mint of art in collaboration <br/>
-              with Mark Rise for Not Only a JPG.
+              with Waleska for Not Only a JPG.
             </Description>
             <MintingWrapper>
                 <FormControllerWrapper>
