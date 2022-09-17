@@ -148,6 +148,14 @@ const Counter = styled.h3`
   text-align: center;
   font-family: 'GandhiSerifRegular';
   color: ${(props) => props.theme.colors.accent};
+  small {
+    padding: 0;
+    line-height: 1;
+    font-size: 4rem;
+  }
+  p{ 
+    margin: 0;
+  }
 `;
 
 const Description = styled.p`
@@ -347,7 +355,7 @@ const Home: NextPage<{TARGET_DATE: number}> = ({TARGET_DATE}) => {
   useEffect(() => {
     // @ts-ignore
     const { ethereum } = window;
-    if(ethereum){
+    if(ethereum && account){
       setAccountListener(ethereum);
       mintedPieces().then((respuesta)=>{
         setTotalMinted(Number(respuesta));
@@ -379,11 +387,25 @@ const Home: NextPage<{TARGET_DATE: number}> = ({TARGET_DATE}) => {
             <Title>Waleska</Title>
             <Counter>
               {
-                 minutes > 10 ? ( "00: 10: 00") :
+                 minutes > 10 ? (
+                  <>
+                    <small>
+                      Mint starts in:
+                    </small>
+                    <p>
+                      {days}d {hours}:{minutes}:{seconds}
+                    </p>
+                  </>
+                 ):
                  minutes < 0 && seconds < 0 ? (
                   "Mint is Over"
                  ) : (<>
-                        00:{minutes < 10 ? "0"+ minutes: minutes}:{seconds < 10 ? "0"+ seconds: seconds}
+                          <small>
+                            Remaining time:
+                          </small>
+                          <p>
+                             00:{minutes < 10 ? "0"+ minutes: minutes}:{seconds < 10 ? "0"+ seconds: seconds}
+                          </p>
                       </>)                 
               } 
             </Counter>
@@ -409,10 +431,17 @@ const Home: NextPage<{TARGET_DATE: number}> = ({TARGET_DATE}) => {
                   </FormControllerButton>
                 </FormControllerWrapper>
                 <TotalMinted>
-                  Cost per piece: { costPerPiece/ 10**18 } MATIC
+                  {
+                    account ? (
+                      <>
+                        Cost per piece: { costPerPiece/ 10**18 } MATIC
+                      </>
+                    ) :
+                    null
+                  }
                 </TotalMinted>
                 <MintButton 
-                  disabled={isActive}
+                  disabled={!isActive || !account}
                   onClick={()=> {
                       handleMint();
                   }}
@@ -420,7 +449,13 @@ const Home: NextPage<{TARGET_DATE: number}> = ({TARGET_DATE}) => {
                 Mint  
               </MintButton>
               <TotalMinted>
-                Minted Pieces: { totalMinted }
+                {
+                  account ? (
+                    <>
+                      Minted Pieces: { totalMinted }
+                    </>
+                  ): null
+                }
               </TotalMinted>
             </MintingWrapper>
 

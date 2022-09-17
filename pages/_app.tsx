@@ -21,8 +21,9 @@ const theme: DefaultTheme = {
 
 
 function MyApp({ Component, pageProps }: AppProps) {
+  //1664074800000
   const TEN_MINS_IN_MS = 10 * 60 * 1000;
-  const NOW_IN_MS = 1664532030000;
+  const NOW_IN_MS = 1664074800000;
   const TARGET_DATE = TEN_MINS_IN_MS + NOW_IN_MS;
   return (
     <>
