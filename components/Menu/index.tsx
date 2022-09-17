@@ -61,16 +61,16 @@ export const Menu = () => {
       <NavigationBar>
         <Items>
           <Item>             
-            <a href="https://nosolounjpg.com/" target={'_blank'} rel="noreferrer">Information</a>
+            <a href="https://notonlyajpg.com/" target={'_blank'} rel="noreferrer">Information</a>
           </Item>
           <Item>
-            <a href="https://nosolounjpg.com/" target={'_blank'} rel="noreferrer">Legal Announcements</a>
+            <a href="https://notonlyajpg.com/terms-conditions/" target={'_blank'} rel="noreferrer">Legal Announcements</a>
           </Item>
           <Item> 
             <Image src="/images/iso.png" alt='Logo de NOJPG' width={26.25} height={70} />
           </Item>
           <Item>
-            <a href="https://nosolounjpg.com/" target={'_blank'} rel="noreferrer">Frequent Questions</a>
+            <a href="https://notonlyajpg.com/faq/" target={'_blank'} rel="noreferrer">Frequent Questions</a>
           </Item>
           <Item> {width > 1023 ? <MetamaskButton /> : null} </Item>
             

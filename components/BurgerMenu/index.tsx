@@ -157,11 +157,11 @@ const Burger = () => {
         </BurgerWrapper>
         <NavigationMenu open={open}>
             { width < 1024 ? <MetamaskButton /> : null }
-            <a href="https://nosolounjpg.com/" target={'_blank'} rel="noreferrer">Information</a>
+            <a href="https://notonlyajpg.com/" target={'_blank'} rel="noreferrer">Information</a>
 
-            <a href="https://nosolounjpg.com/" target={'_blank'} rel="noreferrer">Legal Announcements</a>
+            <a href="https://notonlyajpg.com/terms-conditions/" target={'_blank'} rel="noreferrer">Legal Announcements</a>
 
-            <a href="https://nosolounjpg.com/" target={'_blank'} rel="noreferrer">Frequent Questions</a>
+            <a href="https://notonlyajpg.com/faq/" target={'_blank'} rel="noreferrer">Frequent Questions</a>
         </NavigationMenu>
 
 
