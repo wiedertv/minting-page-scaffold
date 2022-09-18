@@ -335,12 +335,12 @@ const Home: NextPage<{TARGET_DATE: number}> = ({TARGET_DATE}) => {
     window.addEventListener('resize', () => setWindowSize(getWindowSize()));
 
     return () => {
-      window.removeEventListener('resize', ()=> setWindowSize(getWindowSize()));
+      window?.removeEventListener('resize', ()=> setWindowSize(getWindowSize()));
     };
   }, []);
 
   const setAccountListener = (provider: any) => {
-    provider.removeListener("accountsChanged", () => {});
+    provider?.removeListener("accountsChanged", () => {});
     provider.on("accountsChanged", () => {
       if (!provider.selectedAddress) {
         setAccount(null);

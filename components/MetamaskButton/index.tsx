@@ -95,8 +95,8 @@ const MetamaskButton = memo(() => {
 
     const setAccountListener = (provider: any) => {
       console.log('setAccountListener called');
-      provider.removeListener("chainChanged", () => {});
-      provider.removeListener("accountsChanged", () => {});
+      provider?.removeListener("chainChanged", () => {});
+      provider?.removeListener("accountsChanged", () => {});
       provider.on("accountsChanged", () => {
         if (!provider.selectedAddress) {
           setAccount(null);
@@ -131,8 +131,8 @@ const MetamaskButton = memo(() => {
           console.error("Please, install Metamask.");
         }
         return () => { 
-        ethereum.removeListener("chainChanged", () => {});
-        ethereum.removeListener("accountsChanged", () => {});
+        ethereum?.removeListener("chainChanged", () => {});
+        ethereum?.removeListener("accountsChanged", () => {});
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
       },[]);
