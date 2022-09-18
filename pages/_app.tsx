@@ -1,6 +1,7 @@
 import { ThemeProvider, DefaultTheme } from 'styled-components'
 import type { AppProps } from 'next/app'
 import GlobalStyle from '../styled-components/GlobalStyles.styled'
+import dynamic from 'next/dynamic';
 
 
 const theme: DefaultTheme = {
@@ -35,4 +36,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+export default dynamic(() => Promise.resolve(MyApp), {
+  ssr: false,
+});

@@ -480,4 +480,8 @@ const Home: NextPage<{TARGET_DATE: number}> = ({TARGET_DATE}) => {
   )
 }
 
+export function getStaticProps() {
+  return { props: { date: Date.now() } }
+}
+
 export default Home;
