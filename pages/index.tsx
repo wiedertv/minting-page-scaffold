@@ -355,7 +355,8 @@ const Home: NextPage<{TARGET_DATE: number}> = ({TARGET_DATE}) => {
   useEffect(() => {
     // @ts-ignore
     const { ethereum } = window;
-    if(ethereum && account){
+    if(ethereum){
+      setAccount(ethereum.selectedAddress ? ethereum.selectedAddress : null);
       setAccountListener(ethereum);
       mintedPieces().then((respuesta)=>{
         setTotalMinted(Number(respuesta));
@@ -386,25 +387,25 @@ const Home: NextPage<{TARGET_DATE: number}> = ({TARGET_DATE}) => {
           <ContainerText>
             <Title>Waleska</Title>
             <Counter>
-              {
-                 minutes > 10 ? (
+            {
+                 days >= 0 && hours > 0 ? (
                   <>
                     <small>
-                      Mint starts in:
+                      Mint starts at:
                     </small>
                     <p>
-                      {days}d {hours}:{minutes}:{seconds}
+                      6:00 PM CEST
                     </p>
                   </>
                  ):
-                 minutes < 0 && seconds < 0 ? (
+                 days < 0 && hours < 0 && minutes < 0 && seconds < 0 ? (
                   "Mint is Over"
                  ) : (<>
                           <small>
                             Remaining time:
                           </small>
                           <p>
-                             00:{minutes < 10 ? "0"+ minutes: minutes}:{seconds < 10 ? "0"+ seconds: seconds}
+                             0{hours}:{minutes < 10 ? "0"+ minutes: minutes}:{seconds < 10 ? "0"+ seconds: seconds}
                           </p>
                       </>)                 
               } 
@@ -441,7 +442,7 @@ const Home: NextPage<{TARGET_DATE: number}> = ({TARGET_DATE}) => {
                   }
                 </TotalMinted>
                 <MintButton 
-                  disabled={!isActive || !account}
+                  disabled={!isActive}
                   onClick={()=> {
                       handleMint();
                   }}
